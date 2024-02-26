@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-aside: #CFCFCF;
+}
+
+aside {
+    height: 500px;
+    width: 75px;
+    margin: 10px;
+    border-radius: 25px;
+    background-color: var(--bg-aside);
+}
+
+.aside-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.nuevo-contacto {
+    display: flex;
+    justify-content: center;
+}
+
+.nuevo-contacto button {
+    height: 60px;
+    width: 60px;
+    border-radius: 25%;
+    border: none;
+    margin: auto;
+}
+
+.filtros-container {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtro button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+}
+
+.filtro-todos {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --bg-aside: #CFCFCF;
+}
+
+main{
+    display: flex;
+    width: 1200px;
+    margin: auto;
+}
+
+aside {
+    height: 500px;
+    width: 75px;
+    margin: 10px;
+    margin-right: 50px;
+    border-radius: 25px;
+    background-color: var(--bg-aside);
+}
+
+.aside-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.nuevo-contacto {
+    display: flex;
+    justify-content: center;
+}
+
+.nuevo-contacto button {
+    height: 60px;
+    width: 60px;
+    border-radius: 25%;
+    border: none;
+    margin: auto;
+}
+
+.filtros-container {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtro button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+}
+
+.filtro-todos {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/*-----------------------------AGENDA---------------------------------------------*/
+/*-----------------------------AGENDA---------------------------------------------*/
+/*-----------------------------AGENDA---------------------------------------------*/
+.agenda-container {
+    display: flex;
+}
+
+.listado {
+    min-height: 100vh;
+    background-color: #f8e1d8;
+    width: 500px;
+}
+
+.botonera {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.botones {
+    height: 100px;
+    width: 30px;
+    border-radius: 100% 0% 100% 0% / 0% 32% 68% 100%;
+    border: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.botones:hover{
+    width: 50px;
+}
+.botones span {
+    font-family: "Roboto", sans-serif;
+    margin: 20px 0;
+    transform: rotate(-90deg);
+}
+
+
+#amigos{
+    top: 50px;
+    z-index: 11;
+    background-color: #35CE8D;
+} 
+#trabajo{
+    top: 100px;
+    background-color: #E0D2C3;
+    z-index: 12;
+}
+
+/* #limpiar:hover, #amigos:hover, #trabajo:hover{
+    z-index: 20;
+} */

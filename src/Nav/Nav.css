@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    width: 100%;
+    height: 50px;
+    background-color: #005CE6;
+}
+.nav-container{
+    display: flex;
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+    justify-content: space-between;
+}
+.icono-container, .icono-container img{
+    width: auto;
+    height: 100%;
+}
+
+ul{
+    display: flex;
+    gap: 10px;
+    height: 100%;
+}
+li{
+    margin: auto;
+    list-style: none;
+    color: white;
+}
