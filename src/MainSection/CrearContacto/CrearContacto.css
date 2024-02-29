@@ -1,0 +1,17 @@
+form{
+    width: 600px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.input-container{
+    height: 100px;
+}
+
+.form-button{
+    width: 200px;
+    height: 100px;
+}

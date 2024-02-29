@@ -1,0 +1,11 @@
+.main-container{
+    display: flex;
+    
+}
+
+.agenda-container{
+    width: 520px;
+    height: 800px;
+    overflow-y: auto ;
+    border: solid red;
+}

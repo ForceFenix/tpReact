@@ -1,7 +1,10 @@
 import React from 'react';
 import './ContactoPlano.css'
-const ContactoPlano = ({props}) => {
-    const {nombre, apellido, telefono, email} = props;
+const ContactoPlano = ({props, borrar}) => {
+    const {id, nombre, apellido, telefono, email} = props;
+
+    
+
     return(
         <>
         <div className="contacto-container">
@@ -13,8 +16,10 @@ const ContactoPlano = ({props}) => {
                 <div className="contacto--txt__datos">
                 <h4>Telefono: {telefono}</h4>
                 <h4>E-mail: {email}</h4>
+                <h4>ID: {id}</h4>
                 </div>
             </div>
+            <button className='contacto--dlt' value={id} onClick={(e) => borrar(e.target.value)}>Borrar</button>
         </div>
         </>
     )
