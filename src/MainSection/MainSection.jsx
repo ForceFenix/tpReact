@@ -47,15 +47,17 @@ const MainSection = () => {
             grupo: "amigos"
         }
     ];
+
     // si no existe "listado" en el localStorage, la creo vacia
-    if ((localStorage.getItem('listado') === undefined) || (localStorage.getItem('listado') === '')){
+    if ((localStorage.getItem('listado') === undefined) || (localStorage.getItem('listado') === '')) {
         localStorage.setItem('listado', JSON.stringify(listado));
     }
     // paso al localStorage el listado de contactos , volviendolo string con JSON.stringify (EL LOCAL STORAGE SOLO ALMACENA STRING)
 
     const [contactos, setContactos] = useState(JSON.parse(localStorage.getItem("listado")));
+    const [buscar, setBuscar] = useState('');
 
-    var crearContacto = (nombre, apellido, email, telefono) => {
+    const crearContacto = (nombre, apellido, email, telefono) => {
         const mensaje = {
             id: Date.now(),
             nombre: nombre,
@@ -83,14 +85,21 @@ const MainSection = () => {
         setContactos(JSON.parse(localStorage.getItem("listado")));
     }
 
-
+    const filtro = () => {
+        if (buscar == '') {
+            return contactos
+        } else {
+            return contactos.filter(element => element.nombre.toLowerCase().startsWith(buscar.toLowerCase()))
+        }
+    }
     return (
         <>
             <div className="main-container">
                 <div className="agenda-container">
+                    <input type="text" value={buscar} onChange={(e) => setBuscar(e.target.value)} />
                     {
-                        contactos.map(element => 
-                            (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto}/>))
+                        filtro().map(element =>
+                            (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto} />))
                     }
                 </div>
                 <CrearContacto crearContacto={crearContacto} />
