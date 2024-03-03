@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Nav } from './Nav/Nav.jsx'
-import { MainSection } from './MainSection/MainSection.jsx'
+import './main.css'
 import { Padre } from './assets/Laboratorio/Padre.jsx'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Nav />
-    <MainSection />
+    <App />
   </React.StrictMode>,
 )

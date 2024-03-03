@@ -7,41 +7,71 @@
 }
 
 .contacto-container{
+    width: 49%;
+    height: 250px;
     display: flex;
-    width: 490px;
-    height: 100px;
-    padding: 10px;
+    flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid #cecece;
-}
-.contacto--img{
-    width: 80px;
-    height: 80px;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    background-color: #fff;
     overflow: hidden;
-    border-radius: 25%;
-    margin-right: 20px;
 }
-.contacto--img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
+
 .contacto--txt{
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    width: 100%;
+    height: 50%;
+    /* ↓↓ CAMBIAR CON RESPECTO AL GRUPO QUE PERTENEZCA ↓↓ */
+    background: linear-gradient(#00000026, #000000c9), url(https://img.freepik.com/foto-gratis/grupo-personas-diversas-que-tienen-reunion-negocios_53876-25060.jpg?w=1380&t=st=1709434370~exp=1709434970~hmac=10db719c4be07bd411eb0ff4cacca37df08900d91129fd3622881cb668e67f84)
+    ;
+    background-size: cover;
+    position: relative;
+    color: rgb(246, 246, 246);
+    font-size: 20px;
 }
+
+.contacto--dlt{
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: top;
+}
+.contacto--dlt i {
+    font-size: 30px;
+    font-weight: 600;
+}
+.contacto--dlt i:hover{
+    filter: drop-shadow(0 0 9px #fff);
+} 
+
 .contacto--txt h2{
-    margin-bottom: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
-.contacto--txt__datos{
+
+.contacto--datos{
+    width: 100%;
+    height: 50%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    height: 60%;
-    justify-content: space-between;
+    justify-content: space-around;
+    font-size: 18px;
 }
 
+.contacto--datos h4 > i{
+    padding: 0 10px ;
+}

@@ -49,13 +49,13 @@ const MainSection = () => {
     ];
 
     // si no existe "listado" en el localStorage, la creo vacia
-    if ((localStorage.getItem('listado') === undefined) || (localStorage.getItem('listado') === '')) {
+    if ((localStorage.getItem('listado') == undefined) || (localStorage.getItem('listado') == '')) {
+        // paso al localStorage el listado de contactos , volviendolo string con JSON.stringify (EL LOCAL STORAGE SOLO ALMACENA STRING)
         localStorage.setItem('listado', JSON.stringify(listado));
     }
-    // paso al localStorage el listado de contactos , volviendolo string con JSON.stringify (EL LOCAL STORAGE SOLO ALMACENA STRING)
-
     const [contactos, setContactos] = useState(JSON.parse(localStorage.getItem("listado")));
     const [buscar, setBuscar] = useState('');
+    const [formulario, setFormulario] = useState(false);
 
     const crearContacto = (nombre, apellido, email, telefono) => {
         const mensaje = {
@@ -70,6 +70,7 @@ const MainSection = () => {
         listadoStorage.push(mensaje);
         localStorage.setItem("listado", JSON.stringify(listadoStorage))
         setContactos(actualizarLS);
+        setFormulario(false)
     };
 
     const eliminarContacto = (e) => {
@@ -92,17 +93,29 @@ const MainSection = () => {
             return contactos.filter(element => element.nombre.toLowerCase().startsWith(buscar.toLowerCase()))
         }
     }
+
+    const ocultarFormulario = (e) => {
+        setFormulario(e)
+    }
+
     return (
         <>
             <div className="main-container">
                 <div className="agenda-container">
-                    <input type="text" value={buscar} onChange={(e) => setBuscar(e.target.value)} />
-                    {
-                        filtro().map(element =>
-                            (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto} />))
-                    }
+                    <div className="agenda--input">
+                        <input type="text" value={buscar} onChange={(e) => setBuscar(e.target.value)} placeholder='Ingrese el nombre...'/>
+                        <button onClick={() => setFormulario(true)}>+Nuevo Contacto</button>
+                    </div>
+                    <div className="contactos-container">
+                        {
+                            filtro().map(element =>
+                                (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto} />))
+                        }
+                    </div>
                 </div>
-                <CrearContacto crearContacto={crearContacto} />
+                {
+                    (formulario == true) && <CrearContacto crearContacto={crearContacto} btnCerrar={ocultarFormulario} />
+                }
             </div>
         </>
 
