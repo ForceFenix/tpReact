@@ -1,32 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
-
-.contacto-container{
-    width: 100%;
-    height: 250px;
+.contactoExpandido-container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    border: 1px solid #e8e8e8;
-    border-radius: 15px;
-    background-color: #fff;
-    overflow: hidden;
+}
+.contactoExpandido-blur{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.591);
+    top: 0;
+    left: 0;
 }
 
-
-.contacto--txt{
-    width: 100%;
-    height: 50%;
-    /* ↓↓ CAMBIAR CON RESPECTO AL GRUPO QUE PERTENEZCA ↓↓ */
-
-    position: relative;
-    color: rgb(246, 246, 246);
-    font-size: 20px;
+.contacto--card{
+    width: 400px;
+    height: 700px;
+    margin-top: 70px;
+    margin-right: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 100;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    background: linear-gradient(#787878, var(--txt-color));
+    
 }
 .trabajo{
     background: linear-gradient(#00000026, #000000c9), url(https://img.freepik.com/fotos-premium/espacio-trabajo-oscuro-moderno-computadora-portatil-maqueta-pantalla-blanca-telefono-inteligente-sobre-fondo-oscuro_67155-18521.jpg);;
@@ -47,53 +49,39 @@
 .desconocido{
     background: linear-gradient(#00000026, #000000c9), url(https://media.istockphoto.com/id/1408364942/es/foto/signo-de-interrogaci%C3%B3n-blanco-en-fondo-azul-de-puntuaci%C3%B3n-con-concepto-de-s%C3%ADmbolo-abstracto-o.webp?b=1&s=170667a&w=0&k=20&c=LQt-d0SNk3tO2ezo1fgPB1oCniwf60m3GWjJXIhYWak=);
     background-size: cover;
-    background-position: 0px 60%;
+    background-position: 90%;
 }
-.contacto--dlt{
-    width: 30px;
-    height: 30px;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    
-    
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: top;
-}
-.contacto--dlt i {
-    font-size: 30px;
-    font-weight: 600;
-    pointer-events: none;
-}
-.contacto--dlt i:hover{
-    filter: drop-shadow(0 0 9px #fff);
-} 
-
-.contacto--txt h2{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    cursor: pointer;
-}
-
-
-.contacto--datos{
+.contacto--portada{
     width: 100%;
-    height: 50%;
-    padding: 10px;
+    height: 300px;
+    position: relative;
+}
+.profilePicture{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    position: absolute;
+    bottom: -100px;
+    right: 100px;
+}
+.profilePicture img{
+    width: 100%;
+}
+
+
+.contacto--datos h2{
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+.contacto--datos__datos{
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-size: 18px;
-}
-
-.contacto--datos h4 > i{
-    padding: 0 10px ;
 }

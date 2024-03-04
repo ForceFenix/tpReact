@@ -1,15 +1,16 @@
 .main-container{
     display: flex;
     background-color: rgb(241, 241, 241);
+    padding-top: 10px;
+    width: 100%;
     
 }
 
 .agenda-container{
-    width: calc(100vw - 250px);
+    width: calc(100vw - 195px);
     height: 100vh;
     overflow-y: auto ;
 }
-
 
 .agenda--input{
     width: 100%;
@@ -28,11 +29,68 @@
     outline: none;
 }
 
-.contactos-container{
+.agenda--input button{
+    width: 100px;
+    height: 50px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--green);
+    color: var(--txt-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+.agenda--input button:hover{
+    background-color: var(--green-hover);
+}
+
+
+
+
+.contactos-container{
     width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
     gap: 20px;
 
+}
+
+
+@media (min-width: 378px) and (max-width: 1023px){
+    .agenda--input input{
+        width: 400px;
+    }
+    .contactos-container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media (max-width: 390px) {
+
+    .agenda-container{
+        width: 100vw;
+    }
+    .agenda--input{
+        padding-left: 60px;
+        width: 100%;
+        height: 100px;
+        display: flex;
+    }
+    .agenda--input input{
+        width: 200px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        margin: 0 10px;
+    }
+    .contactos-container{
+        grid-template-columns:1fr;
+    }
 }

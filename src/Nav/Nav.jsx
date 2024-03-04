@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Nav.css'
 
 const Nav = () => {
+
+    const [mostrar, setMostrar] = useState(false)
+
+    const mostrarNav = (mostrar) => {
+        if(mostrar == true){
+            return "nav-container nav--show"
+        }
+        else{
+            return "nav-container nav--hide"
+        }
+    }
+
     return (
-        <>
-            <nav>
+        <> 
+            <button className='btnAbrir' onClick={() => setMostrar(true)}><i className="bi bi-list"></i></button>
+            <nav className={mostrarNav(mostrar)}>
+                <button className='btnCerrar' onClick={() => setMostrar(false)}><i class="bi bi-x"></i></button>
                 <ul>
                     <div className="nav_filters">
                         <li><i className="bi bi-people"></i>Todos</li>
@@ -15,8 +29,6 @@ const Nav = () => {
                     <div className="nav_option">
                         <li>Sobre mi</li>
                         <li>Contactame</li>
-                        <li>Iniciar sesión</li>
-                        <li>Registrarse</li>
                     </div>
                 </ul>
             </nav >

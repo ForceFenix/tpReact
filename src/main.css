@@ -3,3 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root{
+    --txt-color: #e6e9eb;
+    --bg-color1: #2F3B47;
+    --green: #26b06f;
+    --green-hover: #1f955e;
+}

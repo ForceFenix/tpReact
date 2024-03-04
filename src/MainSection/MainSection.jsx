@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CrearContacto } from './CrearContacto/CrearContacto';
 import { ContactoPlano } from './ContactoPlano/ContactoPlano';
 import './MainSection.css';
+import { ContactoExpandido } from './ContactoExpandido/ContactoExpandido';
 
 const MainSection = () => {
 
@@ -12,7 +13,7 @@ const MainSection = () => {
             apellido: "Perez",
             telefono: "1548943848",
             email: "saknvcx@gmail.com",
-            grupo: "trabajo"
+            grupo: "Trabajo"
         },
         {
             id: 1,
@@ -20,7 +21,7 @@ const MainSection = () => {
             apellido: "Comini",
             telefono: "564213857",
             email: "sajnsd@gmail.com",
-            grupo: "trabajo"
+            grupo: "Trabajo"
         },
         {
             id: 2,
@@ -28,7 +29,7 @@ const MainSection = () => {
             apellido: "Vega",
             telefono: "484398164",
             email: "akncaowq@hotmail.com",
-            grupo: "trabajo"
+            grupo: "Trabajo"
         },
         {
             id: 3,
@@ -36,7 +37,7 @@ const MainSection = () => {
             apellido: "Galarza",
             telefono: "448/434354",
             email: "aljjboqj@hotmail.com",
-            grupo: "amigos"
+            grupo: "Amigos"
         },
         {
             id: 4,
@@ -44,7 +45,7 @@ const MainSection = () => {
             apellido: "Duvivier",
             telefono: "21312121",
             email: "tuvieja@gmail.com",
-            grupo: "amigos"
+            grupo: "Amigos"
         }
     ];
 
@@ -56,15 +57,17 @@ const MainSection = () => {
     const [contactos, setContactos] = useState(JSON.parse(localStorage.getItem("listado")));
     const [buscar, setBuscar] = useState('');
     const [formulario, setFormulario] = useState(false);
+    const [mostrar, setMostrar] = useState(false)
+    const [contactoSeleccionado, setContactoSeleccionado] = useState('')
 
-    const crearContacto = (nombre, apellido, email, telefono) => {
+    const crearContacto = (nombre, apellido, email, telefono, grupo) => {
         const mensaje = {
             id: Date.now(),
             nombre: nombre,
             apellido: apellido,
             email: email,
             telefono: telefono,
-            grupo: "amigos" //cambiar
+            grupo: grupo
         }
         const listadoStorage = JSON.parse(localStorage.getItem("listado"));
         listadoStorage.push(mensaje);
@@ -85,7 +88,6 @@ const MainSection = () => {
         // actualizo el valor de "contactos"
         setContactos(JSON.parse(localStorage.getItem("listado")));
     }
-
     const filtro = () => {
         if (buscar == '') {
             return contactos
@@ -93,29 +95,37 @@ const MainSection = () => {
             return contactos.filter(element => element.nombre.toLowerCase().startsWith(buscar.toLowerCase()))
         }
     }
-
     const ocultarFormulario = (e) => {
         setFormulario(e)
+        setMostrar(false)
     }
+
+    const abrirContacto = (e) => {
+        setMostrar(!mostrar);
+        let listaClick = contactos.filter(element => element.id == e);
+        let objetoEncontrado = listaClick[0];
+        setContactoSeleccionado(objetoEncontrado)
+    }
+
+
 
     return (
         <>
             <div className="main-container">
                 <div className="agenda-container">
                     <div className="agenda--input">
-                        <input type="text" value={buscar} onChange={(e) => setBuscar(e.target.value)} placeholder='Ingrese el nombre...'/>
-                        <button onClick={() => setFormulario(true)}>+Nuevo Contacto</button>
+                        <input type="text" value={buscar} onChange={(e) => setBuscar(e.target.value)} placeholder='Ingrese el nombre...' />
+                        <button onClick={() => setFormulario(true)}>+ Nuevo</button>
                     </div>
                     <div className="contactos-container">
                         {
                             filtro().map(element =>
-                                (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto} />))
+                                (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto} abrir={(e) => abrirContacto(e)} />))
                         }
                     </div>
                 </div>
-                {
-                    (formulario == true) && <CrearContacto crearContacto={crearContacto} btnCerrar={ocultarFormulario} />
-                }
+                {mostrar && <ContactoExpandido props={contactoSeleccionado} cerrar={ocultarFormulario} />}
+                {formulario && <CrearContacto crearContacto={crearContacto} btnCerrar={ocultarFormulario} />}
             </div>
         </>
 

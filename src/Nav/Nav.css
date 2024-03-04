@@ -4,13 +4,18 @@
     box-sizing: border-box;
 }
 
-nav {
+.nav-container {
     width: 225px;
     height: 100vh;
     background-color: #2F3B47;
     font-size: 20px;
 }
-
+.nav--show, .nav--hide{
+    display: block;
+}
+.btnAbrir, .btnCerrar{
+    display: none;
+}
 ul {
     height: 100%;
     display: flex;
@@ -43,4 +48,58 @@ li i {
     height: 300px;
     display: flex;
     flex-direction: column;
+}
+
+@media (min-width: 378px) and (max-width: 1023px){
+
+}
+
+@media (max-width: 390px) {
+    .nav-container {
+        position: absolute;
+        z-index: 100;
+        width: 100vw;
+        font-size: 30px;
+    }
+    .btnAbrir, .btnCerrar{
+        display: block;
+        position: absolute;
+        border: none;
+        font-size: 50px;
+        font-weight: 600;
+        z-index: 90;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    .btnAbrir{
+        display: block;
+        width: 105px;
+        height: 105px;
+        top: -35px;
+        left: -35px;
+        color: var(--bg-color1);
+    }
+    .btnAbrir i{
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+    .btnCerrar{
+        display: block;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        color: var(--txt-color);
+    }
+    .nav--show{
+        display: block;
+    }
+    .nav--hide{
+        display: none;
+    }
+    ul {
+        padding-top: 60px;
+        padding-left: 10px;
+    }
 }
