@@ -14,7 +14,8 @@ const ContactoPlano = ({ props, borrar, abrir }) => {
             return "contacto--txt desconocido"
         }
     }
-
+//HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML
+//HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML
     return (
         <>
             <div className="contacto-container" >

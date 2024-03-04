@@ -4,7 +4,9 @@ import { ContactoPlano } from './ContactoPlano/ContactoPlano';
 import './MainSection.css';
 import { ContactoExpandido } from './ContactoExpandido/ContactoExpandido';
 
-const MainSection = () => {
+//agregar la funcionalidad del filtro grupo
+
+const MainSection = ({filtroGrupo}) => {
 
     const listado = [
         {
@@ -60,6 +62,7 @@ const MainSection = () => {
     const [mostrar, setMostrar] = useState(false)
     const [contactoSeleccionado, setContactoSeleccionado] = useState('')
 
+    
     const crearContacto = (nombre, apellido, email, telefono, grupo) => {
         const mensaje = {
             id: Date.now(),
@@ -75,7 +78,6 @@ const MainSection = () => {
         setContactos(actualizarLS);
         setFormulario(false)
     };
-
     const eliminarContacto = (e) => {
         // vuelvo lista el contenido en el localStorage
         const listadoStorage = JSON.parse(localStorage.getItem("listado"));
@@ -88,18 +90,23 @@ const MainSection = () => {
         // actualizo el valor de "contactos"
         setContactos(JSON.parse(localStorage.getItem("listado")));
     }
+    //analiza el contenido del (".agenda--input input") en conjunto con el tipo de grupo al que pertenece, para ver si coincide con algun contacto.
     const filtro = () => {
+        if(filtroGrupo != "todos"){
+            var filtrados = [...contactos].filter(element => element.grupo.toLowerCase() == filtroGrupo);
+        }else{
+            var filtrados = [...contactos];
+        }
         if (buscar == '') {
-            return contactos
+            return filtrados
         } else {
-            return contactos.filter(element => element.nombre.toLowerCase().startsWith(buscar.toLowerCase()))
+            return filtrados.filter(element => element.nombre.toLowerCase().startsWith(buscar.toLowerCase()))
         }
     }
     const ocultarFormulario = (e) => {
         setFormulario(e)
         setMostrar(false)
     }
-
     const abrirContacto = (e) => {
         setMostrar(!mostrar);
         let listaClick = contactos.filter(element => element.id == e);
@@ -107,8 +114,8 @@ const MainSection = () => {
         setContactoSeleccionado(objetoEncontrado)
     }
 
-
-
+//HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML
+//HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML
     return (
         <>
             <div className="main-container">
@@ -119,12 +126,15 @@ const MainSection = () => {
                     </div>
                     <div className="contactos-container">
                         {
+                            //se van a mostrar los elementos que la funcion filtro() devuelva
                             filtro().map(element =>
                                 (<ContactoPlano key={element.id} props={element} borrar={eliminarContacto} abrir={(e) => abrirContacto(e)} />))
                         }
                     </div>
                 </div>
+                {/* si mostrar es true muesta ContactoExpandido */}
                 {mostrar && <ContactoExpandido props={contactoSeleccionado} cerrar={ocultarFormulario} />}
+                {/* si formulario es true muestra CrearContacto */}
                 {formulario && <CrearContacto crearContacto={crearContacto} btnCerrar={ocultarFormulario} />}
             </div>
         </>

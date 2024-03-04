@@ -9,26 +9,23 @@ const CrearContacto = ({ crearContacto, btnCerrar }) => {
     const [telefono, setTelefono] = useState('');
     const [grupo, setGrupo] = useState('desconocido');
 
+//HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML
+//HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML--HTML
     return (
-
         <>
             <div className="form-container">
                 <div className="close-container" onClick={() => btnCerrar(false)}>
-
                 </div>
                 <form onSubmit={() => crearContacto(nombre, apellido, email, telefono, grupo)} id='formulario' >
                     <h2>Creando contacto</h2>
                     <div className="form--inputs">
                         <div className="input-container">
-
-
                             <label htmlFor="nombre">Nombre</label>
                             <input type="text"
                                 id="nombre"
                                 value={nombre}
                                 onChange={(e) => setNombre(e.target.value)}
                                 required
-
                             />
                         </div>
                         <div className="input-container">
@@ -62,7 +59,7 @@ const CrearContacto = ({ crearContacto, btnCerrar }) => {
                             <h3 className='label--radios'>Grupo</h3>
                             <div className="input-radio">
                                 <label htmlFor="amigos">Amigos</label>
-                                <input type="radio" id='amigos' name='grupo' value='Amigos' onChange={(e) => setGrupo(e.target.value)} />
+                                <input type="radio" id='amigos' name='grupo' value='Amigos' onChange={(e) => setGrupo(e.target.value)} required />
                             </div>
                             <div className="input-radio">
                                 <label htmlFor="trabajo">Trabajo</label>
@@ -74,7 +71,7 @@ const CrearContacto = ({ crearContacto, btnCerrar }) => {
                             </div>
                             <div className="input-radio">
                                 <label htmlFor="desconocido">Desconocido</label>
-                                <input type="radio" id='desconocido' name='grupo' value='Desconocido' onChange={(e) => setGrupo(e.target.value)} checked />
+                                <input type="radio" id='desconocido' name='grupo' value='Desconocido' onChange={(e) => setGrupo(e.target.value)} />
                             </div>
                         </div>
 
