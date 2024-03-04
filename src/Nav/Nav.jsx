@@ -19,17 +19,13 @@ const Nav = ({ filtroGrupo }) => {
         <> 
             <button className='btnAbrir' onClick={() => setMostrar(true)}><i className="bi bi-list"></i></button>
             <nav className={mostrarNav(mostrar)}>
-                <button className='btnCerrar' onClick={() => setMostrar(false)}><i class="bi bi-x"></i></button>
+                <button className='btnCerrar' onClick={() => setMostrar(false)}><i className="bi bi-x"></i></button>
                 <ul>
                     <div className="nav_filters">
                         <li onClick={() => filtroGrupo("todos")}><i className="bi bi-people"></i>Todos</li>
                         <li onClick={() => filtroGrupo("trabajo")}><i className="bi bi-building"></i>Trabajo</li>
                         <li onClick={() => filtroGrupo("estudio")}><i className="bi bi-bank"></i>Estudio</li>
                         <li onClick={() => filtroGrupo("amigos")}><i className="bi bi-emoji-smile"></i>Amigos</li>
-                    </div>
-                    <div className="nav_option">
-                        <li>Sobre mi</li>
-                        <li>Contactame</li>
                     </div>
                 </ul>
             </nav >

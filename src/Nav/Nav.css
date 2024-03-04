@@ -1,9 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 .nav-container {
     width: 225px;
     height: 100vh;
@@ -43,12 +37,13 @@ li i {
     margin-right: 20px;
 }
 
-.nav_filters,
-.nav_option {
+.nav_filters{
     height: 300px;
     display: flex;
     flex-direction: column;
+    padding-top: 30px;
 }
+
 
 @media (min-width: 378px) and (max-width: 1023px){
 

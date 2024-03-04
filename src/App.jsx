@@ -3,6 +3,7 @@ import { Nav } from './Nav/Nav'
 import { MainSection } from './MainSection/MainSection'
 import './App.css'
 import { ContactoExpandido } from './MainSection/ContactoExpandido/ContactoExpandido'
+import { Footer } from './Footer/Footer'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         {/* Envio el state "grupo" al hijo*/}
         <MainSection filtroGrupo = {grupoSeleccionado}/>
       </div>
+      <Footer/>
     </>
   )
 }
